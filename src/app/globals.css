@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+/* ─── AWS Diatype Rounded Semi Mono (self-hosted from kiro.dev) ─── */
+
+@font-face {
+  font-family: "AWS Diatype Rounded Semi Mono";
+  src: url("/fonts/AWSDiatypeRoundedSemi-Mono-Regular.6d9a506a.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AWS Diatype Rounded Semi Mono";
+  src: url("/fonts/AWSDiatypeRoundedSemi-Mono-RegularItalic.022ddd69.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AWS Diatype Rounded Semi Mono";
+  src: url("/fonts/AWSDiatypeRoundedSemi-Mono-Bold.91c49741.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AWS Diatype Rounded Semi Mono";
+  src: url("/fonts/AWSDiatypeRoundedSemi-Mono-BoldItalic.2625c099.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --foreground-secondary: #4a4a4a;
+  --foreground-muted: #7a7a7a;
+  --accent: #7c5cfc;
+  --accent-light: #ede8ff;
+  --accent-hover: #6a48e8;
+  --coral: #f27059;
+  --coral-light: #fef0ed;
+  --teal: #2db5a3;
+  --teal-light: #e8f8f5;
+  --surface: #ffffff;
+  --surface-alt: #f5f3ef;
+  --border: #e8e5df;
+  --border-light: #f0ede8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-hover: var(--accent-hover);
+  --color-coral: var(--coral);
+  --color-coral-light: var(--coral-light);
+  --color-teal: var(--teal);
+  --color-teal-light: var(--teal-light);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --font-sans: "AWS Diatype Rounded Semi Mono", "AWS Diatype", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "AWS Diatype Rounded Semi Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scatter {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translate(var(--tx, 10px), var(--ty, -10px)) rotate(var(--tr, 5deg)); opacity: 0.3; }
+  100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes converge {
+  0% { transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(0.9); opacity: 0; }
+  100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+.animate-float-up {
+  animation: float-up 0.6s ease-out forwards;
+}
+
+.animate-scatter {
+  animation: scatter 4s ease-in-out infinite;
+}
+
+.animate-converge {
+  animation: converge 0.8s ease-out forwards;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scatter,
+  .animate-float-up,
+  .animate-converge {
+    animation: none;
+  }
+}
+
+/* ─── Smooth scroll ─── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
