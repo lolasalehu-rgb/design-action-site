@@ -993,11 +993,11 @@ function Install() {
           </p>
           <div className="mt-4 flex items-center gap-2">
             <code className="flex-1 rounded-lg bg-surface-alt px-3 py-2.5 text-sm text-foreground font-mono overflow-x-auto">
-              npx skills add lola-salehu/design-action-plugin
+              npx skills add lolasalehu-rgb/design-action-plugin
             </code>
             <button
               onClick={() =>
-                copy("npx skills add lola-salehu/design-action-plugin", "npx")
+                copy("npx skills add lolasalehu-rgb/design-action-plugin", "npx")
               }
               className="shrink-0 rounded-lg border border-border px-3 py-2.5 text-sm text-foreground-muted hover:bg-surface-alt active:bg-border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               aria-label="Copy install command"
@@ -1066,7 +1066,7 @@ function Footer() {
           </div>
           <div className="flex items-center gap-6 text-sm text-foreground-muted">
             <a
-              href="https://github.com/lola-salehu/design-action-plugin"
+              href="https://github.com/lolasalehu-rgb/design-action-plugin"
               className="hover:text-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
             >
               GitHub
